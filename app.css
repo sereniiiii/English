@@ -88,8 +88,8 @@ em{font-style:normal}
 .part:hover{background:#f0ece3;color:var(--ink)}
 .part.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
 .part .roman{
-  font-size:10.5px;border:1px solid currentColor;opacity:.6;border-radius:4px;
-  padding:0 4px;min-width:20px;text-align:center;
+  font-size:10px;color:#9b948a;letter-spacing:.02em;min-width:38px;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
 }
 .part .cnt{margin-left:auto;font-size:11px;color:var(--ink3)}
 

@@ -147,7 +147,7 @@ function renderSidebar() {
           const ac = a.sections.flatMap((s) => s.cards);
           const on = state.partId === a.id ? "on" : "";
           return `<div class="part ${on}" data-part="${a.id}">
-            <span class="roman">${esc(ROMAN[a.roman] || a.roman)}</span>
+            <span class="roman">${a.roman === "小卷" || a.roman === "卷" ? esc(a.roman) : "Part " + esc(a.roman)}</span>
             <span class="pt">${esc(a.title || a.sections.map(s => s.type).join(" / ") || "题目")}</span>
             <span class="cnt">${ac.length}</span>
           </div>`;
