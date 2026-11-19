@@ -249,8 +249,10 @@ function renderAnswerCol(card, rec) {
   if (none) {
     const t = rec.section.type;
     const why = /综合测试卷/.test(t)
-      ? "综合测试卷的答案册未按篇编号，暂未做自动对齐，请用「原文」翻答案页。"
-      : "填空/写作类答案在配套《答案及解析》册里，本文件夹未包含该册，仅有「快速对答案」的客观题字母。";
+      ? "综合测试卷按整卷连号排版，本卷暂未自动对齐，请点「原文 → 答案页」翻原书答案。"
+      : /写作/.test(t)
+      ? "写作类没有逐题答案，参考答案在配套《答案及解析》册的范文页，请翻原书。"
+      : "这一题型暂未从《答案及解析》册匹配到答案（扫描件编号未识别），请点「原文 → 答案页」查原书。";
     hint = `<div class="anshint">${why}</div>`;
   } else if (card.ansPage) {
     hint = `<div class="anshint">答案册页码：P${card.ansPage} · 点右上「原文 → 答案页」可直接看原书答案。</div>`;
@@ -744,6 +746,7 @@ $("#btnHelp").addEventListener("click", () => {
   <table class="helptable">
     <tr><td>找书</td><td>顶栏四个标签切换四本书；左侧是「单元 → 课时 → 板块」目录。</td></tr>
     <tr><td>刷题</td><td>左边是题目、右边是答案，同一行对齐。点选项可记下你的答案，答案区会对错变色。</td></tr>
+    <tr><td>解析</td><td>答案下方灰色块是原书《答案及解析》的讲解原文，不是概括。</td></tr>
     <tr><td>遮答案</td><td>顶栏「答案：显示/遮挡」全局切换，自测时先遮住。</td></tr>
     <tr><td>收藏</td><td>题卡右上 ☆。收藏夹里能看到「哪本书 · 哪一章 · 什么时候」收的。</td></tr>
     <tr><td>批注</td><td>右上 ✎ 写笔记、标「会了/模糊/不会」。批注不改进原题文字，复习时按掌握度筛。</td></tr>
@@ -751,7 +754,7 @@ $("#btnHelp").addEventListener("click", () => {
     <tr><td>原文</td><td>右上 ▤ 直接看扫描原页并高亮该题位置；有答案册的还能跳到答案原页。</td></tr>
     <tr><td>搜索</td><td>顶栏搜索对全书题干、选项、原文做全文匹配。</td></tr>
   </table>
-  <p style="font-size:12px;color:#8a8f98;margin-top:14px">题目文字由本机 OCR 生成，可能有识别错误（英文基本准确，中文小标题偶有偏差），以「原文」为准。</p>`);
+  <p style="font-size:12px;color:#8a8f98;margin-top:14px">题目文字由本机 OCR 生成，可能有识别错误（英文基本准确，中文小标题偶有偏差），以「原文」为准。答案与解析取自配套《答案及解析》册；两本合订册（必修1-2、选修1-2）的解析册是双栏小字扫描，仍有部分题目没接上，看到「—」请翻原书。</p>`);
 });
 $("#drawerClose").addEventListener("click", closeDrawer);
 $("#mask").addEventListener("click", closeDrawer);

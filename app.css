@@ -165,15 +165,15 @@ em{font-style:normal}
 }
 .colhead::after{content:"";flex:1;height:1px;background:var(--line2)}
 
-.ansrow{display:flex;gap:9px;padding:6px 0;border-top:1px solid var(--line2);font-size:14px}
+.ansrow{display:grid;grid-template-columns:24px 1fr;gap:1px 9px;padding:7px 0;border-top:1px solid var(--line2);font-size:14px}
 .ansrow:first-of-type{border-top:0}
-.ansrow .n{flex:0 0 22px;color:var(--ink3);font-size:12px;text-align:right;padding-top:2px}
-.ansrow .v{font-weight:700;color:var(--accent);font-family:Georgia,serif;min-width:22px}
+.ansrow .n{grid-column:1;grid-row:1;color:var(--ink3);font-size:12px;text-align:right;padding-top:2px}
+.ansrow .v{grid-column:2;grid-row:1;font-weight:700;color:var(--accent);font-family:Georgia,serif;min-width:22px}
 .ansrow .v.ok{color:var(--ok)}
 .ansrow .v.bad{color:var(--bad)}
-.ansrow .txt{color:var(--ink2);font-size:13.5px;white-space:pre-wrap}
+.ansrow .txt{grid-column:2;grid-row:2;color:var(--ink2);font-size:13px;line-height:1.65;white-space:pre-wrap;background:rgba(0,0,0,.022);border-left:2px solid var(--line2);padding:5px 8px;border-radius:0 4px 4px 0;margin-top:3px}
 .ansrow .empty{color:var(--ink3);font-weight:400}
-.hide .ansrow .v{filter:blur(5px)}
+.hide .ansrow .v,.hide .ansrow .txt{filter:blur(5px)}
 .anshint{font-size:12px;color:var(--ink3);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line2)}
 
 /* 批注 */
