@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>必刷题库 · 高中必刷题（英语·人教版 2026）</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">必刷<span>题库</span></div>
+  <div class="bookswitch" id="bookSwitch"></div>
+  <div class="searchbox">
+    <input id="search" type="search" placeholder="搜题目 / 选项 / 原文关键词…" autocomplete="off">
+  </div>
+  <div class="tools">
+    <button class="btn ghost" id="btnAns" title="显示或遮挡答案">答案：显示</button>
+    <button class="btn ghost" id="btnFav">收藏夹 <em id="favCount">0</em></button>
+    <button class="btn ghost" id="btnReview">复习</button>
+    <button class="btn ghost" id="btnHelp">说明</button>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <section class="main" id="main"></section>
+</main>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div class="drawer-tabs" id="drawerTabs"></div>
+    <button class="btn icon" id="drawerClose">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</div>
+<div class="mask" id="mask"></div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-head">
+    <div id="modalTitle">原文对照</div>
+    <div class="modal-nav" id="modalNav"></div>
+    <button class="btn icon" id="modalClose">✕</button>
+  </div>
+  <div class="modal-body" id="modalBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data/books.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
